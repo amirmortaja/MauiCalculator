@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCalculator.ScientificPage"
+             Title="Bilimsel">
+
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto, *, *, *, *, *, *, *" 
+          ColumnDefinitions="*, *, *, *, *" 
+          Padding="8"
+          RowSpacing="3"
+          ColumnSpacing="3">
+
+        <Label x:Name="SciHistoryLabel" 
+               Grid.Row="0" Grid.ColumnSpan="5" 
+               Style="{StaticResource DisplayHistoryStyle}" 
+               Text="" />
+
+        <Label x:Name="SciDisplayLabel" 
+               Grid.Row="1" Grid.ColumnSpan="5" 
+               Style="{StaticResource DisplayResultStyle}" 
+               Text="0" />
+
+        <Grid Grid.Row="2" Grid.ColumnSpan="5" ColumnDefinitions="Auto, Auto, Auto, Auto, *">
+            <Button x:Name="AngleModeButton" Grid.Column="0" Text="DEG" Clicked="OnAngleModeClicked" Style="{StaticResource ScientificButtonStyle}" />
+            <Button Grid.Column="1" Text="F-E" Clicked="OnFunctionClicked" Style="{StaticResource ScientificButtonStyle}" />
+            <Button Grid.Column="2" Text="Trigonometri ▾" Clicked="OnTrigMenuClicked" Style="{StaticResource ScientificButtonStyle}" />
+            <Button Grid.Column="3" Text="İşlev ▾" Clicked="OnFunctionClicked" Style="{StaticResource ScientificButtonStyle}" />
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.ColumnSpan="5" ColumnDefinitions="*, *, *, *, *">
+            <Button Grid.Column="0" Text="MC" Clicked="OnMemoryClicked" Style="{StaticResource ScientificButtonStyle}" />
+            <Button Grid.Column="1" Text="MR" Clicked="OnMemoryClicked" Style="{StaticResource ScientificButtonStyle}" />
+            <Button Grid.Column="2" Text="M+" Clicked="OnMemoryClicked" Style="{StaticResource ScientificButtonStyle}" />
+            <Button Grid.Column="3" Text="M-" Clicked="OnMemoryClicked" Style="{StaticResource ScientificButtonStyle}" />
+            <Button Grid.Column="4" Text="MS" Clicked="OnMemoryClicked" Style="{StaticResource ScientificButtonStyle}" />
+        </Grid>
+
+        <Button Grid.Row="4" Grid.Column="0" Text="2ⁿᵈ" Clicked="OnFunctionClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="4" Grid.Column="1" Text="π" Clicked="OnConstantClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="4" Grid.Column="2" Text="e" Clicked="OnConstantClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="4" Grid.Column="3" Text="C" Clicked="OnClearClicked" Style="{StaticResource OperatorButtonStyle}" />
+        <Button Grid.Row="4" Grid.Column="4" Text="⌫" Clicked="OnBackspaceClicked" Style="{StaticResource OperatorButtonStyle}" />
+
+        <Button Grid.Row="5" Grid.Column="0" Text="x²" Clicked="OnSpecialOpClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="5" Grid.Column="1" Text="1/x" Clicked="OnSpecialOpClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="5" Grid.Column="2" Text="|x|" Clicked="OnSpecialOpClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="5" Grid.Column="3" Text="exp" Clicked="OnFunctionClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="5" Grid.Column="4" Text="mod" Clicked="OnOperatorClicked" Style="{StaticResource OperatorButtonStyle}" />
+
+        <Button Grid.Row="6" Grid.Column="0" Text="√x" Clicked="OnSpecialOpClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="6" Grid.Column="1" Text="(" Clicked="OnParenthesisClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="6" Grid.Column="2" Text=")" Clicked="OnParenthesisClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="6" Grid.Column="3" Text="n!" Clicked="OnSpecialOpClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="6" Grid.Column="4" Text="÷" Clicked="OnOperatorClicked" Style="{StaticResource OperatorButtonStyle}" />
+
+        <Button Grid.Row="7" Grid.Column="0" Text="xʸ" Clicked="OnOperatorClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="7" Grid.Column="1" Text="7" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="7" Grid.Column="2" Text="8" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="7" Grid.Column="3" Text="9" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="7" Grid.Column="4" Text="×" Clicked="OnOperatorClicked" Style="{StaticResource OperatorButtonStyle}" />
+
+        <Button Grid.Row="8" Grid.Column="0" Text="10ˣ" Clicked="OnSpecialOpClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="8" Grid.Column="1" Text="4" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="8" Grid.Column="2" Text="5" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="8" Grid.Column="3" Text="6" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="8" Grid.Column="4" Text="-" Clicked="OnOperatorClicked" Style="{StaticResource OperatorButtonStyle}" />
+
+        <Button Grid.Row="9" Grid.Column="0" Text="log" Clicked="OnSpecialOpClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="9" Grid.Column="1" Text="1" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="9" Grid.Column="2" Text="2" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="9" Grid.Column="3" Text="3" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="9" Grid.Column="4" Text="+" Clicked="OnOperatorClicked" Style="{StaticResource OperatorButtonStyle}" />
+
+        <Button Grid.Row="10" Grid.Column="0" Text="ln" Clicked="OnSpecialOpClicked" Style="{StaticResource ScientificButtonStyle}" />
+        <Button Grid.Row="10" Grid.Column="1" Text="+/-" Clicked="OnNegateClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="10" Grid.Column="2" Text="0" Clicked="OnNumberClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="10" Grid.Column="3" Text="," Clicked="OnDecimalClicked" Style="{StaticResource NumberButtonStyle}" />
+        <Button Grid.Row="10" Grid.Column="4" Text="=" Clicked="OnEqualClicked" Style="{StaticResource EqualButtonStyle}" />
+
+    </Grid>
+</ContentPage>
